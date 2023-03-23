@@ -1,8 +1,11 @@
-# from django.db import models
+from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    first_name = models.CharField(max_length=15)
+    last_name = models.CharField(max_length=15)
+    home_park = models.CharField(max_length=40, default=False)
     pass
     '''
     This is a custom version of the built in User class
