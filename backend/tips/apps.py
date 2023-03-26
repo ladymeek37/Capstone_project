@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SkatersConfig(AppConfig):
+class TipConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'skaters'
+    name = 'tips'
