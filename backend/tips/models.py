@@ -19,6 +19,6 @@ class Tip(models.Model):
     text = models.CharField(max_length=300)
     link = models.CharField(max_length=200)
     image_url = models.ImageField(upload_to=upload_to)
-    favorite_count = models.IntegerField(choices=category_choices, blank=True, null=True)
+    favorite_count = models.IntegerField(default="0")
     date = models.DateField()
-    category = models.IntegerField()
+    category = models.IntegerField(choices=category_choices, blank=True, null=True)
