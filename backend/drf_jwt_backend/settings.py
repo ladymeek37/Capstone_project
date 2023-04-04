@@ -152,6 +152,18 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
 
+
+#for imagefield in tip model:
+
+import os
+
+# Actual directory user files go to
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+
+# URL used to access the media
+MEDIA_URL = '/media/'
+
+
 try:
     from drf_jwt_backend.local_settings import *
 except ImportError:
