@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
@@ -16,7 +17,7 @@ def tips_list(request):
     return Response(serializer.data)
 
 
-#api request to post a new tip
+#api request to post a new tip/request to get tips bu user ID
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 def user_tip(request):
@@ -33,7 +34,18 @@ def user_tip(request):
         serializer = TipSerializer(tips, many=True)
         return Response(serializer.data)
 
-
-
+#api request to update tip
+@api_view(['PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def tip_detail(request, pk):
+    tip = get_object_or_404(Tip, pk = pk)
+    if request.method == 'PUT':
+        serializer = TipSerializer(tip, data = request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        tip.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
 
 
