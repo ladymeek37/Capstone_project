@@ -16,7 +16,7 @@ def upload_to(instance, filename):
 class Tip(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    text = models.CharField(max_length=500)
+    text = models.CharField(max_length=1000)
     link = models.CharField(max_length=200, blank = True)
     image_url = models.ImageField(upload_to=upload_to, blank=True)
     favorite_count = models.IntegerField(default="0")
