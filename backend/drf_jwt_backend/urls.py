@@ -24,4 +24,5 @@ urlpatterns = [
     path('api/comments/', include('comments.urls')),
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
+    path('api/favorites/', include('favorite_tips.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

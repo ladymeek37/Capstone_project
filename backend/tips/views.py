@@ -16,13 +16,6 @@ def tips_list(request):
     serializer = TipSerializer(tips, many=True)
     return Response(serializer.data)
 
-# #api request to get tip by category
-# @api_view(['GET'])
-# @permission_classes([AllowAny])
-# def tips_by_category(request):
-#     tips = Tip.objects.filter(category=request.tip.category)
-#     serializer = TipSerializer(tips, many=True)
-#     return Response(serializer.data)
 
 #api request to post a new tip/request to get tips by user ID
 @api_view(['GET','POST'])
