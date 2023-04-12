@@ -56,3 +56,19 @@ def tip_detail(request, pk):
         return Response(status = status.HTTP_204_NO_CONTENT)
 
 
+#api request to get tips by category
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def tips_by_category(request):
+    category_param = request.query_params.get('category')
+    tips = Tip.objects.all()
+
+    if category_param:
+        tips = tips.filter(category = category_param)
+
+    serializer = TipSerializer(tips, many=True)
+    return Response(serializer.data)
+
+
+
+
