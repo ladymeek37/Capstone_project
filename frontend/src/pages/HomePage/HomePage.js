@@ -19,6 +19,13 @@ const HomePage = () => {
     fetchTips();
   }, [token]);
 
+
+  // //useEffect to get tips by category
+  // useEffect(() => {
+
+  //   onSubmitOne();
+  // },  [token]);
+
   const fetchTips = async () => {
     try {
       let response = await axios.get("http://127.0.0.1:8000/api/tips/all/" 
@@ -32,10 +39,29 @@ const HomePage = () => {
     }
   };
   
-  async function onSubmitOne (event) {
-    event.preventDefault();
+
+  // onSubmit functions to get tips by category
+  async function onClickOne (event) {
     try {
-      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1/');
+      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1');
+      setTips(response.data);
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
+
+  async function onClickTwo (event) {
+    try {
+      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=2');
+      setTips(response.data);
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
+
+  async function onClickThree (event) {
+    try {
+      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=3');
       setTips(response.data);
     } catch (error) {
       console.log(error.response.data)
@@ -45,10 +71,13 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
+      <h1>Posts:</h1>
       <div>
         <p>Filter By:</p>
-        <button onSubmit={onSubmitOne} type = 'submit'>Yoga/Stretching</button>        
+        <button onClick={(event) => onClickOne(event)} type = 'submit'>Yoga/Stretching</button> 
+        <button onClick={(event) => onClickTwo(event)} type = 'submit'>Diet/Supplements</button>
+        <button onClick={(event) => onClickThree(event)} type = 'submit'>Lifestyle/Other</button>
+
       </div>
 
         {tips &&
@@ -60,9 +89,9 @@ const HomePage = () => {
                   <p>{tip.date} </p>
                   <p>{tip.title}</p> 
                   <p>{tip.category} </p>
-                  <p>{tip.image_url} </p>
+                  <img src = {tip.image_url}/>
                   <p>{tip.text} </p>
-                  <p>{tip.link}</p>
+                  <a href={tip.link} target="_blank">{tip.link}</a>
                 </div>
               </body> 
           )
