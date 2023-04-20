@@ -16,12 +16,19 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+           <Link to = "/createpost/"> Create Post </Link>
+         </li>
+         <li>
+          <Link to = "/about"> About </Link>
+         </li>
+        <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}
         </li>
+
       </ul>
     </div>
   );

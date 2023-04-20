@@ -28,10 +28,7 @@ const HomePage = () => {
 
   const fetchTips = async () => {
     try {
-      let response = await axios.get("http://127.0.0.1:8000/api/tips/all/" 
-        // headers: {
-        //   Authorization: "Bearer " + token,
-        // },
+      let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
       );
       setTips(response.data);
     } catch (error) {
@@ -89,7 +86,7 @@ const HomePage = () => {
                   <p>{tip.date} </p>
                   <p>{tip.title}</p> 
                   <p>{tip.category} </p>
-                  <img src = {tip.image_url}/>
+                  <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
                   <p>{tip.text} </p>
                   <a href={tip.link} target="_blank">{tip.link}</a>
                 </div>

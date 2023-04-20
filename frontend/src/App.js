@@ -6,6 +6,8 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import CreatePostPage from "./pages/CreatePostPage/CreatePostPage";
+import AboutPage from "./pages/About Page/AboutPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -22,6 +24,8 @@ function App() {
         <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/createpost/" element={<PrivateRoute><CreatePostPage /></PrivateRoute>} />
+        <Route path="/about/" element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>
