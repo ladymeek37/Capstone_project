@@ -26,6 +26,27 @@ const ProfilePage = () => {
           console.log(error.response.data);
         }
       };
+
+      async function onClick(event) {
+
+        event.preventDefault();
+        deleteTip()
+      }
+
+      async function deleteTip(tip) {
+
+        try{
+            let response = await axios.delete('http://127.0.0.1:8000/api/tips/', tip, {
+                headers: {
+                Authorization: "Bearer " + token,
+            }, 
+            })
+            console.log("This is the response",response)
+
+        } catch (error) {
+            console.log("The api isn't working...", error.message)
+        }
+      };
       
       return(
         <div>
@@ -45,6 +66,7 @@ const ProfilePage = () => {
                         <p>{tip.text} </p>
                         <a href={tip.link} target="_blank">{tip.link}</a>
                       </div>
+                    <button type = "submit" onClick = {onClick}>DELETE</button>
                     </body> 
                 )
               }
