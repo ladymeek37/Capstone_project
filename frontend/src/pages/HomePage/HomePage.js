@@ -65,6 +65,15 @@ const HomePage = () => {
     }
   }
 
+  async function onClickFour (event) {
+    try {
+      let response = await axios.get('http://127.0.0.1:8000/api/tips/all/');
+      setTips(response.data);
+    } catch (error) {
+      console.log(error.response.data)
+    }   
+  }
+
 
   return (
     <div className="container">
@@ -72,8 +81,12 @@ const HomePage = () => {
       <div>
         <p>Filter By:</p>
         <button onClick={(event) => onClickOne(event)} type = 'submit'>Yoga/Stretching</button> 
+        <br/>
         <button onClick={(event) => onClickTwo(event)} type = 'submit'>Diet/Supplements</button>
+        <br/>
         <button onClick={(event) => onClickThree(event)} type = 'submit'>Lifestyle/Other</button>
+        <br/>
+        <button onClick={(event) => onClickFour(event)} type = 'submit'>All</button>
 
       </div>
 

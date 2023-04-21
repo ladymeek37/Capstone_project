@@ -9,7 +9,7 @@ const CreatePostPage = (props) => {
     const [date, setDate] = useState('');
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
-    const [image, setImage] = useState('');
+    const [image_url, setImage] = useState('');
     const [link, setLink] = useState('');
 
     const [user, token] = useAuth();
@@ -19,16 +19,27 @@ const CreatePostPage = (props) => {
     async function onSubmit(event) {
 
         event.preventDefault();
-        const formValuesObject ={
-            category : category,
-            date : date,
-            title : title,
-            text : text,
-            image : image,
-            link : link,
-        }
-        sendPost(formValuesObject)
-        console.log(formValuesObject);
+
+        let formData = new FormData()
+
+        formData.append("category", category)
+        formData.append("date", date)
+        formData.append("title", title)
+        formData.append("text", text)
+        formData.append("image_url", image_url)
+        formData.append("link", link)
+        
+        // const formValuesObject ={
+        //     category : category,
+        //     date : date,
+        //     title : title,
+        //     text : text,
+        //     image_url : image_url,
+        //     link : link,
+        // }
+        
+        sendPost(formData)
+        console.log(formData);
         navigate('/')
     }
 
@@ -39,6 +50,7 @@ const CreatePostPage = (props) => {
             let response = await axios.post('http://127.0.0.1:8000/api/tips/', newPost, {
                 headers: {
                 Authorization: "Bearer " + token,
+                "Content-Type": "multipart/form-data",
             }, 
             })
             console.log("This is the response",response)
@@ -48,6 +60,11 @@ const CreatePostPage = (props) => {
         }
 
     }
+
+    function imageFile(e) {
+        setImage(e.target.files[0]);
+    }
+    ;
     
     return(
 
@@ -57,6 +74,16 @@ const CreatePostPage = (props) => {
             <div>
                 <label>*Category:</label>
                 <input type = 'string' value = {category} onChange={(event) => setCategory(event.target.value)}></input>
+                {/* <select 
+                    name = 'category_options_name' 
+                    id = 'category_options_id' 
+                    multiple = 'multiple' 
+                    value = {category} 
+                    onChange={(event) => setCategory(event.target.value)}>
+                        <option value="1">Yoga/Meditation</option>
+                        <option value="2">Diet/Supplements</option>
+                        <option value="3">Lifestyle/Other</option>
+                </select> */}
             </div>
             <br/>
             <div>
@@ -78,12 +105,11 @@ const CreatePostPage = (props) => {
                 <label>Image:</label>
                 <input
                 type="file"
+                // value = {image_url}
                 id="update-pic"
                 name="image_url"
                 accept="image/jpeg,image/png,image/gif"
-                onChange={(e) => {
-                    setImage(e.target.files[0]);
-                }}
+                onChange={(e) => imageFile(e)}
                 />               
             </div>
             <br/>

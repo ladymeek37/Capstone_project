@@ -1,0 +1,56 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
+
+import axios from "axios";
+
+const ProfilePage = () => {
+
+    const [user, token] = useAuth();
+    const [tips, setTips] = useState([]);
+
+    useEffect(() => {
+
+        fetchUserTips();
+      }, [token]);
+
+      const fetchUserTips = async () => {
+        try {
+          let response = await axios.get("http://127.0.0.1:8000/api/tips/", {
+            headers: {
+                Authorization: "Bearer " + token,
+            },
+          });
+          setTips(response.data);
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      };
+      
+      return(
+        <div>
+        <div>
+            <h1>{user.username}'s Profile</h1>
+        </div>
+            {tips &&
+                tips.map((tip) => {
+                  return(
+                    <body>
+                      <div key={tip.id}>
+                        <p>{tip.user.username}</p>
+                        <p>{tip.date} </p>
+                        <p>{tip.title}</p> 
+                        <p>{tip.category} </p>
+                        <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
+                        <p>{tip.text} </p>
+                        <a href={tip.link} target="_blank">{tip.link}</a>
+                      </div>
+                    </body> 
+                )
+              }
+          )}
+          </div>
+      )
+};
+
+export default ProfilePage;
