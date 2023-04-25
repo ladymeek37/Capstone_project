@@ -15,7 +15,7 @@ const ProfilePage = () => {
         fetchUserTips();
       }, [token]);
 
-      const fetchUserTips = async () => {
+        const fetchUserTips = async () => {
         try {
           let response = await axios.get("http://127.0.0.1:8000/api/tips/", {
             headers: {
@@ -23,6 +23,7 @@ const ProfilePage = () => {
             },
           });
           setTips(response.data);
+          console.log(response.data);
         } catch (error) {
           console.log(error.response.data);
         }

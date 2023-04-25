@@ -10,6 +10,7 @@ import CreatePostPage from "./pages/CreatePostPage/CreatePostPage";
 import AboutPage from "./pages/About Page/AboutPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EditPostPage from "./pages/Edit Post/EditPost";
+import FavoriteTipsPage from "./pages/FavoriteTips Page/FavoriteTipsPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/about/" element={<AboutPage />} />
         <Route path="/profile/" element={<ProfilePage />}></Route>
         <Route path="/editpost/:tipId/" element={<EditPostPage />} />
+        <Route path="favorites/" element={<FavoriteTipsPage />} />
 
       </Routes>
       {/* <Footer /> */}

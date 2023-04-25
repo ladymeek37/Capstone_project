@@ -8,4 +8,4 @@ class FavoriteTipSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteTip
         fields = ['id', 'user', 'tip']
-        depth = 1
+        depth = 2
