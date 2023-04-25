@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import CreatePostPage from "./pages/CreatePostPage/CreatePostPage";
 import AboutPage from "./pages/About Page/AboutPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import EditPostPage from "./pages/Edit Post/EditPost";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -27,9 +28,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/createpost/" element={<PrivateRoute><CreatePostPage /></PrivateRoute>} />
         <Route path="/about/" element={<AboutPage />} />
-        <Route path="profile/" element={<ProfilePage />}></Route>
+        <Route path="/profile/" element={<ProfilePage />}></Route>
+        <Route path="/editpost/:tipId/" element={<EditPostPage />} />
+
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

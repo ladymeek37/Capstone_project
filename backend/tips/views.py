@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -62,6 +62,14 @@ def tips_by_category(request):
     serializer = TipSerializer(tips, many=True)
     return Response(serializer.data)
 
+
+#api request to get tip by id
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_tip_by_id(request, tip_id):
+    tip = Tip.objects.filter(id = tip_id)
+    serializer = TipSerializer(tip, many=True)
+    return Response(serializer.data)
 
 
 

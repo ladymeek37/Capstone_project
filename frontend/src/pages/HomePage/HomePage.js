@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -10,14 +11,13 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [tips, setTips] = useState([]);
-
+  const {state} = useLocation()
   console.log(user)
   console.log(token)
 
   useEffect(() => {
-
     fetchTips();
-  }, [token]);
+  }, [token, state]);
 
 
   // //useEffect to get tips by category
@@ -106,7 +106,7 @@ const HomePage = () => {
               </body> 
           )
         }
-        )}
+        ).reverse()}
     </div>
   );
 };

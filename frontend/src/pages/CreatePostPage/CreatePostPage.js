@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -28,23 +28,14 @@ const CreatePostPage = (props) => {
         formData.append("text", text)
         formData.append("image_url", image_url)
         formData.append("link", link)
-        
-        // const formValuesObject ={
-        //     category : category,
-        //     date : date,
-        //     title : title,
-        //     text : text,
-        //     image_url : image_url,
-        //     link : link,
-        // }
-        
-        sendPost(formData)
+    
+
+        await sendPost(formData)
         console.log(formData);
-        navigate('/')
+        navigate('/', {state: true})
     }
 
     async function sendPost(newPost) {
-
 
         try{
             let response = await axios.post('http://127.0.0.1:8000/api/tips/', newPost, {
@@ -72,9 +63,24 @@ const CreatePostPage = (props) => {
             <legend>New Post for {user.username} : </legend>
             <br/>
             <div>
+                <label>*Date:</label>
+                <input type = 'date' value = {date} onChange={(event) => setDate(event.target.value)}></input>               
+            </div>  
+            <br/>          
+            <div>
+                <label>*Title:</label>
+                <input type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
+            </div> 
+            <br/>  
+            <div>
+                <label>*Text:</label>
+                <input type = 'string' value = {text} onChange={(event) => setText(event.target.value)}></input>                
+            </div>
+            <br/>         
+            <div>
                 <label>*Category:</label>
-                <input type = 'string' value = {category} onChange={(event) => setCategory(event.target.value)}></input>
-                {/* <select 
+                {/* <input type = 'string' value = {category} onChange={(event) => setCategory(event.target.value)}></input> */}
+                <select 
                     name = 'category_options_name' 
                     id = 'category_options_id' 
                     multiple = 'multiple' 
@@ -83,22 +89,7 @@ const CreatePostPage = (props) => {
                         <option value="1">Yoga/Meditation</option>
                         <option value="2">Diet/Supplements</option>
                         <option value="3">Lifestyle/Other</option>
-                </select> */}
-            </div>
-            <br/>
-            <div>
-                <label>*Date:</label>
-                <input type = 'date' value = {date} onChange={(event) => setDate(event.target.value)}></input>               
-            </div>
-            <br/>
-            <div>
-                <label>*Title:</label>
-                <input type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
-            </div>
-            <br/>
-            <div>
-                <label>*Text:</label>
-                <input type = 'string' value = {text} onChange={(event) => setText(event.target.value)}></input>                
+                </select>
             </div>
             <br/>
             <div>

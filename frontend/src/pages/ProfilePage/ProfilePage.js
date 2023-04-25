@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -27,31 +28,42 @@ const ProfilePage = () => {
         }
       };
 
-      async function onClick(event) {
-
-        event.preventDefault();
-        deleteTip()
-      }
 
       async function deleteTip(tip) {
 
         try{
-            let response = await axios.delete('http://127.0.0.1:8000/api/tips/', tip, {
+            let response = await axios.delete(`http://127.0.0.1:8000/api/tips/${tip.id}/`, {
                 headers: {
                 Authorization: "Bearer " + token,
             }, 
             })
             console.log("This is the response",response)
+            fetchUserTips();
 
         } catch (error) {
             console.log("The api isn't working...", error.message)
         }
       };
+
+    //   async function editTip(tip) {
+
+    //     try{
+    //         let response = await axios.put(`http://127.0.0.1:8000/api/tips/${tip.id}/`, tip, {
+    //             headers: {
+    //                 Authorization: "Bearer" + token,
+    //             },
+    //         })
+    //         console.log("This is the response", response)
+    //         fetchUserTips();
+    //     } catch (error) {
+    //         console.log("The api isn't working...", error.message)
+    //     }
+    //   };
       
       return(
         <div>
         <div>
-            <h1>{user.username}'s Profile</h1>
+            <h1>{user && user.username}'s Profile</h1>
         </div>
             {tips &&
                 tips.map((tip) => {
@@ -66,11 +78,12 @@ const ProfilePage = () => {
                         <p>{tip.text} </p>
                         <a href={tip.link} target="_blank">{tip.link}</a>
                       </div>
-                    <button type = "submit" onClick = {onClick}>DELETE</button>
+                    <button type = "submit" onClick = {() => deleteTip(tip)}>DELETE</button>
+                    <Link to = {`/editpost/${tip.id}`}> EDIT </Link>
                     </body> 
                 )
               }
-          )}
+          ).reverse()}
           </div>
       )
 };

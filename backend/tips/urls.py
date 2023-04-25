@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.user_tip),
     path("<int:pk>/", views.tip_detail),
     path("by_category", views.tips_by_category),
+    path("by_id/<int:tip_id>/", views.get_tip_by_id),
 ]
