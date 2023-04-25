@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditPostPage = () => {
-
+    
     const [category, setCategory] = useState('');
     const [date, setDate] = useState('');
     const [title, setTitle] = useState('');
@@ -22,6 +22,7 @@ const EditPostPage = () => {
 
     useEffect(() => {
         getTip();
+        
     }, [])
 
 
@@ -35,6 +36,7 @@ const EditPostPage = () => {
         });
         console.log("This is the tip", response)
         setTip(response.data)
+        await setText(tip.text)
         return response
         } catch (error) {
             console.log("The api isn't working...", error.message)            
@@ -80,6 +82,8 @@ const EditPostPage = () => {
     function imageFile(e) {
         setImage(e.target.files[0]);
     }
+
+
 
     return ( 
         <div>

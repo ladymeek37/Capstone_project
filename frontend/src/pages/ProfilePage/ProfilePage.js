@@ -64,7 +64,7 @@ const ProfilePage = () => {
       return(
         <div>
         <div>
-            <h1>{user && user.username}'s Profile</h1>
+            <h1>Your Profile</h1>
         </div>
             {tips &&
                 tips.map((tip) => {
@@ -80,7 +80,9 @@ const ProfilePage = () => {
                         <a href={tip.link} target="_blank">{tip.link}</a>
                       </div>
                     <button type = "submit" onClick = {() => deleteTip(tip)}>DELETE</button>
-                    <Link to = {`/editpost/${tip.id}`}> EDIT </Link>
+                    <Link to = {`/editpost/${tip.id}`}> 
+                        <button>EDIT</button> 
+                    </Link>
                     </body> 
                 )
               }

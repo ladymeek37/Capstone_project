@@ -15,17 +15,17 @@ const Navbar = () => {
             <b>Gnar Health</b> <p>Health tips for skateboarders</p>
           </Link>
         </li>
+         <li>
+          <Link to = "/about"> About </Link>
+         </li>        
         <li>
            <Link to = "/createpost/"> Create Post </Link>
          </li>
          <li>
-          <Link to = "/about"> About </Link>
-         </li>
+          <Link to = "/favorites/">Favorites</Link>
+         </li>         
          <li>
           <Link to = "/profile/"> Profile</Link>
-         </li>
-         <li>
-          <Link to = "/favorites/">Favorites</Link>
          </li>
         <li>
           {user ? (

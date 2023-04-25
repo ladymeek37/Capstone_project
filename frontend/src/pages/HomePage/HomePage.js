@@ -77,7 +77,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h1>Posts:</h1>
+      <h1>All Posts:</h1>
       <div>
         <p>Filter By:</p>
         <button onClick={(event) => onClickOne(event)} type = 'submit'>Yoga/Stretching</button> 

@@ -30,7 +30,7 @@ const FavoriteTipsPage = () => {
     return ( 
         <div>
         <div>
-            <h1>{user && user.username}'s Favorite Tips</h1>
+            <h1>Your Favorite Tips</h1>
         </div>
             {favoriteTips &&
                 favoriteTips.map((tip) => {
