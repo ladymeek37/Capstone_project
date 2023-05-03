@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -98,11 +98,12 @@ const HomePage = () => {
                   <p>{tip.user.username}</p>
                   <p>{tip.date} </p>
                   <p>{tip.title}</p> 
-                  <p>{tip.category} </p>
+                  <p>{tip.category_display} </p>
                   <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
                   <p>{tip.text} </p>
                   <a href={tip.link} target="_blank">{tip.link}</a>
                 </div>
+                <FavoriteButton />
               </body> 
           )
         }

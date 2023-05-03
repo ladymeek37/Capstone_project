@@ -36,7 +36,13 @@ const EditPostPage = () => {
         });
         console.log("This is the tip", response)
         setTip(response.data)
-        await setText(tip.text)
+        await setCategory(response.data[0].category)
+        await setDate(response.data[0].date)
+        await setTitle(response.data[0].title)
+        await setText(response.data[0].text)
+        await setLink(response.data[0].link)        
+        // await setImage(response.data[0].image_url)
+
         return response
         } catch (error) {
             console.log("The api isn't working...", error.message)            
@@ -58,9 +64,8 @@ const EditPostPage = () => {
         formData.append("image_url", image_url)
         formData.append("link", link)
     
-
-        await editTip(formData)
         console.log(formData);
+        await editTip(formData);
         navigate(-1 , {state: true})
     }
 
@@ -111,7 +116,6 @@ const EditPostPage = () => {
                 <select 
                     name = 'category_options_name' 
                     id = 'category_options_id' 
-                    multiple = 'multiple' 
                     value = {category} 
                     onChange={(event) => setCategory(event.target.value)}>
                         <option value="1">Yoga/Meditation</option>
