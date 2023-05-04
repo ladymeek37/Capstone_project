@@ -7,5 +7,6 @@ from .models import Comment
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'text', 'user', 'tip']
+        fields = ['id', 'text', 'user', 'tip_id', 'tip']
         depth = 1
+    tip_id = serializers.IntegerField(write_only=True)
