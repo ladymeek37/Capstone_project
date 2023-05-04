@@ -7,5 +7,6 @@ from .models import FavoriteTip
 class FavoriteTipSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteTip
-        fields = ['id', 'user', 'tip']
+        fields = ['id', 'user', 'tip_id', 'tip']
         depth = 2
+    tip_id = serializers.IntegerField(write_only=True)

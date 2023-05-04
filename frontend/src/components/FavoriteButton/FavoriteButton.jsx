@@ -18,10 +18,14 @@ const FavoriteButton = (props) => {
 
     }
 
-    async function addToFavorites(post) {
+    async function addToFavorites() {
 
         try{
-            let response = await axios.post('http://127.0.0.1:8000/api/favorites/addfavorite/', post, {
+            let response = await axios.post('http://127.0.0.1:8000/api/favorites/addfavorite/', 
+            {
+                "tip_id":props.tipId
+            },
+            {
                 headers: {
                     Authorization: "Bearer " + token,
                 }
@@ -37,7 +41,9 @@ const FavoriteButton = (props) => {
     return ( 
         <div>
             {/* <button onClick = {onClick} type = 'submit'>Add To Favorites</button> */}
-            <GrFavorite onClick = {onClick} type = 'submit'/>
+
+            <p>Add to favorites</p>
+            <GrFavorite onClick = {onClick} type = 'submit'/> 
         </div>
      );
 }
