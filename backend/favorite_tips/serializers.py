@@ -10,3 +10,5 @@ class FavoriteTipSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'tip_id', 'tip']
         depth = 2
     tip_id = serializers.IntegerField(write_only=True)
+    # adding "tip_id = serializers.IntegerField(write_only=True)" to serializer allows body in post request to refer to the tip that is being refrenced
+    

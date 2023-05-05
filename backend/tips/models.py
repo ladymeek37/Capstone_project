@@ -15,7 +15,7 @@ class Tip(models.Model):
 
     category_choices = (
         (1, "Yoga/Stretching"),
-        (2, "Diet/Supplements"),
+        (2, "Diet/Nutrition"),
         (3, "Lifestyle/Other"),
     )
 

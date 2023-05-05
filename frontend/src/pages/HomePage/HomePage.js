@@ -5,7 +5,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 import CommentsSection from "../../components/CommentSection/CommentsSection";
-import { useParams } from "react-router-dom";
+import TipSection from "../../components/TipSection/TipSection";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -13,36 +13,30 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [tips, setTips] = useState([]);
-  const {state} = useLocation()
+  // const {state} = useLocation()
   console.log(user)
   console.log(token)
 
-  useEffect(() => {
-    fetchTips();
-  }, [token, state]);
-
-
-  // //useEffect to get tips by category
   // useEffect(() => {
+  //   fetchTips();
+  // }, [token, state]);
 
-  //   onSubmitOne();
-  // },  [token]);
 
-  const fetchTips = async () => {
-    try {
-      let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
-      );
-      setTips(response.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
-  };
+  // const fetchTips = async () => {
+  //   try {
+  //     let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
+  //     );
+  //     setTips(response.data);
+  //   } catch (error) {
+  //     console.log(error.response.data);
+  //   }
+  // };
   
 
   // onSubmit functions to get tips by category
   async function onClickOne (event) {
     try {
-      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1');
+      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1')
       setTips(response.data);
     } catch (error) {
       console.log(error.response.data)
@@ -84,36 +78,16 @@ const HomePage = () => {
         <p>Filter By:</p>
         <button onClick={(event) => onClickOne(event)} type = 'submit'>Yoga/Stretching</button> 
         <br/>
-        <button onClick={(event) => onClickTwo(event)} type = 'submit'>Diet/Supplements</button>
+        <button onClick={(event) => onClickTwo(event)} type = 'submit'>Diet/Nutrition</button>
         <br/>
         <button onClick={(event) => onClickThree(event)} type = 'submit'>Lifestyle/Other</button>
         <br/>
         <button onClick={(event) => onClickFour(event)} type = 'submit'>All</button>
 
       </div>
-
-        {tips &&
-          tips.map((tip) => {
-            return(
-              <body>
-                <div key={tip.id}>
-                  <p>{tip.user.username}</p>
-                  <p>{tip.date} </p>
-                  <p>{tip.title}</p> 
-                  <p>{tip.category_display} </p>
-                  <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
-                  <p>{tip.text} </p>
-                  <a href={tip.link} target="_blank">{tip.link}</a>
-                </div>
-                <FavoriteButton tipId={tip.id}/>
-                <div>
-                  <CommentsSection tipId = {tip.id}/>                  
-                </div>
-
-              </body> 
-          )
-        }
-        ).reverse()}
+      <div>
+          <TipSection />        
+      </div>   
     </div>
   );
 };
