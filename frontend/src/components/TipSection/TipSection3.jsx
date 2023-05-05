@@ -4,50 +4,50 @@ import useAuth from '../../hooks/useAuth';
 import CommentsSection from '../CommentSection/CommentsSection';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
-const TipSection = () => {
+const TipSectionThree = () => {
     const [tips, setTips] = useState([]);
     const [user, token] = useAuth();
     const {state} = useLocation()
 
     useEffect(() => {
-        fetchTips();
+        fetchTipsOne();
       }, [token, state]);
 
-    const fetchTips = async () => {
+      async function fetchTipsOne (event) {
         try {
-          let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
-          );
+          let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=3')
           setTips(response.data);
         } catch (error) {
-          console.log(error.response.data);
+          console.log(error.response.data)
         }
-      };
+      }
 
 
     return ( 
             <div className="container">
-                <div>
-                    <p>Filter By:</p>
-                    <Link to = {`/category1/`}> 
-                        <button>Yoga/Stretching</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/category2/`}> 
-                        <button>Diet/Nutrition</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/category3/`}> 
-                        <button>Lifestyle/Other</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/all/`}> 
-                        <button>All</button> 
-                    </Link>
-                </div>
+        <div>
+            <p>Filter By:</p>
+            <Link to = {`/category1/`}> 
+                <button>Yoga/Stretching</button> 
+            </Link>
+            <br/>
+            <Link to = {`/category2/`}> 
+                <button>Diet/Nutrition</button> 
+            </Link>
+            <br/>
+            <Link to = {`/category3/`}> 
+                <button>Lifestyle/Other</button> 
+            </Link>
+            <br/>
+            <Link to = {`/all/`}> 
+                <button>All</button> 
+            </Link>
+        </div>
+        <h1>Lifestyle & Other</h1>
                 {tips &&
                   tips.map((tip) => {
                     return(
@@ -75,4 +75,4 @@ const TipSection = () => {
   
 }
  
-export default TipSection;
+export default TipSectionThree;

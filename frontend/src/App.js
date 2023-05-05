@@ -11,6 +11,10 @@ import AboutPage from "./pages/About Page/AboutPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EditPostPage from "./pages/Edit Post/EditPost";
 import FavoriteTipsPage from "./pages/FavoriteTips Page/FavoriteTipsPage";
+import TipSectionOne from "./components/TipSection/TipSection1";
+import TipSectionTwo from "./components/TipSection/TipSection2";
+import TipSectionThree from "./components/TipSection/TipSection3";
+import TipSection from "./components/TipSection/TipSection";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -32,6 +36,10 @@ function App() {
         <Route path="/profile/" element={<ProfilePage />}></Route>
         <Route path="/editpost/:tipId/" element={<EditPostPage />} />
         <Route path="favorites/" element={<FavoriteTipsPage />} />
+        <Route path="/category1/" element={<TipSectionOne />} />
+        <Route path="/category2/" element={<TipSectionTwo />} />
+        <Route path="/category3/" element={<TipSectionThree />} />
+        <Route path="/all/" element={<TipSection />} />
 
       </Routes>
       {/* <Footer /> */}

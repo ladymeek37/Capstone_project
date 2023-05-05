@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 import CommentsSection from "../../components/CommentSection/CommentsSection";
 import TipSection from "../../components/TipSection/TipSection";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -34,14 +35,14 @@ const HomePage = () => {
   
 
   // onSubmit functions to get tips by category
-  async function onClickOne (event) {
-    try {
-      let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1')
-      setTips(response.data);
-    } catch (error) {
-      console.log(error.response.data)
-    }
-  }
+  // async function onClickOne (event) {
+  //   try {
+  //     let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=1')
+  //     setTips(response.data);
+  //   } catch (error) {
+  //     console.log(error.response.data)
+  //   }
+  // }
 
   async function onClickTwo (event) {
     try {
@@ -76,14 +77,21 @@ const HomePage = () => {
       <h1>All Posts:</h1>
       <div>
         <p>Filter By:</p>
-        <button onClick={(event) => onClickOne(event)} type = 'submit'>Yoga/Stretching</button> 
+          <Link to = {`/category1/`}> 
+            <button>Yoga/Stretching</button> 
+          </Link>
         <br/>
-        <button onClick={(event) => onClickTwo(event)} type = 'submit'>Diet/Nutrition</button>
+          <Link to = {`/category2/`}> 
+            <button>Diet/Nutrition</button> 
+          </Link>
         <br/>
-        <button onClick={(event) => onClickThree(event)} type = 'submit'>Lifestyle/Other</button>
+          <Link to = {`/category3/`}> 
+            <button>Lifestyle/Other</button> 
+          </Link>
         <br/>
-        <button onClick={(event) => onClickFour(event)} type = 'submit'>All</button>
-
+          <Link to = {`/all/`}> 
+            <button>All</button> 
+          </Link>
       </div>
       <div>
           <TipSection />        

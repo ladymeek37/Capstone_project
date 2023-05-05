@@ -8,46 +8,47 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-const TipSection = () => {
+const TipSectionTwo = () => {
     const [tips, setTips] = useState([]);
     const [user, token] = useAuth();
     const {state} = useLocation()
 
     useEffect(() => {
-        fetchTips();
+        fetchTipsOne();
       }, [token, state]);
 
-    const fetchTips = async () => {
+      async function fetchTipsOne (event) {
         try {
-          let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
-          );
+          let response = await axios.get('http://127.0.0.1:8000/api/tips/by_category?category=2')
           setTips(response.data);
         } catch (error) {
-          console.log(error.response.data);
+          console.log(error.response.data)
         }
-      };
+      }
 
 
     return ( 
-            <div className="container">
-                <div>
-                    <p>Filter By:</p>
-                    <Link to = {`/category1/`}> 
-                        <button>Yoga/Stretching</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/category2/`}> 
-                        <button>Diet/Nutrition</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/category3/`}> 
-                        <button>Lifestyle/Other</button> 
-                    </Link>
-                    <br/>
-                    <Link to = {`/all/`}> 
-                        <button>All</button> 
-                    </Link>
-                </div>
+
+    <div className="container">
+            <div>
+                <p>Filter By:</p>
+                <Link to = {`/category1/`}> 
+                    <button>Yoga/Stretching</button> 
+                </Link>
+                <br/>
+                <Link to = {`/category2/`}> 
+                    <button>Diet/Nutrition</button> 
+                </Link>
+                <br/>
+                <Link to = {`/category3/`}> 
+                    <button>Lifestyle/Other</button> 
+                </Link>
+                <br/>
+                <Link to = {`/all/`}> 
+                    <button>All</button> 
+                </Link>
+            </div>
+            <h1>Diet & Nutrition</h1>
                 {tips &&
                   tips.map((tip) => {
                     return(
@@ -75,4 +76,4 @@ const TipSection = () => {
   
 }
  
-export default TipSection;
+export default TipSectionTwo;

@@ -25,6 +25,7 @@ const CommentForm = ({tip, getCommentsByTipId}) => {
             })
             .then(response => getCommentsByTipId())
             .then(response => console.log("This is the new comment", response))
+            .then(setComment(""))
         } catch (error) {
             console.log("The API isn't working...", error.message)
         }
