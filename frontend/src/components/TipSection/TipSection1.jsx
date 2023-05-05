@@ -62,6 +62,7 @@ const TipSectionOne = () => {
                           <a href={tip.link} target="_blank">{tip.link}</a>
                         </div>
                             <FavoriteButton tipId={tip.id}/>
+                            <p>{tip.favorite_count}</p>
                         <div>
                             <CommentsSection tipId = {tip.id}/>                  
                         </div>
