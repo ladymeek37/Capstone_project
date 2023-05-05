@@ -35,6 +35,18 @@ const FavoriteButton = (props) => {
         } catch (error) {
             console.log("The api isn't working...", error.message)
         }
+
+        await axios.patch(`http://127.0.0.1:8000/api/tips/favorite/${props.tipId}/`,
+        {
+
+        },
+        {
+            headers: {
+                Authorization: "Bearer " + token,
+            }
+        }
+        )
+        props.fetchTips()
     }
 
 

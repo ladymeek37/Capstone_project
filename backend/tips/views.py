@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .models import Tip
 from .serializers import TipSerializer
+from favorite_tips.models import FavoriteTip
 # Create your views here.
 
 #api request to get all tips
@@ -69,6 +70,21 @@ def tips_by_category(request):
 def get_tip_by_id(request, tip_id):
     tip = Tip.objects.filter(id = tip_id)
     serializer = TipSerializer(tip, many=True)
+    return Response(serializer.data)
+
+
+#request to add to favorite count
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def add_to_fav_count(request, pk):
+    tip = get_object_or_404(Tip, pk = pk)
+    tip.favorite_count = tip.favorite_count + 1
+    check_tip = FavoriteTip.objects.filter(user=request.user,tip_id = pk).exists()
+    if check_tip == True:
+        return Response("Already favorited!")
+    serializer = TipSerializer(tip, data = request.data, partial = True)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
     return Response(serializer.data)
 
 

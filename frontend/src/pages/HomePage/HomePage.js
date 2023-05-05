@@ -74,8 +74,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h1>All Posts:</h1>
-      <div>
+      {/* <div>
         <p>Filter By:</p>
           <Link to = {`/category1/`}> 
             <button>Yoga/Stretching</button> 
@@ -92,7 +91,7 @@ const HomePage = () => {
           <Link to = {`/all/`}> 
             <button>All</button> 
           </Link>
-      </div>
+      </div> */}
       <div>
           <TipSection />        
       </div>   

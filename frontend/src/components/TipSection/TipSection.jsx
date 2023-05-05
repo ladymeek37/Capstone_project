@@ -48,6 +48,7 @@ const TipSection = () => {
                         <button>All</button> 
                     </Link>
                 </div>
+                <h1>All Tips</h1>
                 {tips &&
                   tips.map((tip) => {
                     return(
@@ -61,7 +62,8 @@ const TipSection = () => {
                           <p>{tip.text} </p>
                           <a href={tip.link} target="_blank">{tip.link}</a>
                         </div>
-                            <FavoriteButton tipId={tip.id}/>
+                            <FavoriteButton tipId={tip.id} fetchTips = {fetchTips}/>
+                            <p>{tip.favorite_count}</p>
                         <div>
                             <CommentsSection tipId = {tip.id}/>                  
                         </div>

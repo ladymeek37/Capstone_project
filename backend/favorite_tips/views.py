@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .models import FavoriteTip
 from .serializers import FavoriteTipSerializer
 from rest_framework import status
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 #request to view favorited tips by user
@@ -20,8 +21,15 @@ def user_favorited_tips(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_to_favorites(request):
-    serializer = FavoriteTipSerializer(data = request.data)
-    if serializer.is_valid():
-        serializer.save(user=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    #checks if tip has already been favorited by that user
+    check_tip = FavoriteTip.objects.filter(user=request.user,tip_id = request.data["tip_id"]).exists()
+    if check_tip == True:
+        return Response("Already favorited!")
+    elif check_tip == False:
+        serializer = FavoriteTipSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
