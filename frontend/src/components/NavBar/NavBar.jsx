@@ -11,27 +11,27 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>Gnar Health</b> <p>Health tips for skateboarders</p>
+          <Link class = "navtext" to="/" style={{ textDecoration: "none" }}>
+            <b class = "navtextgnarhealth">GNAR HEALTH</b> <p>Health tips for skateboarders</p>
           </Link>
         </li>
          <li>
-          <Link to = "/about"> About </Link>
+          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/about"> About </Link>
          </li>        
         <li>
-           <Link to = "/createpost/"> Create Post </Link>
+           <Link class = "navtext" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
          </li>
          <li>
-          <Link to = "/favorites/">Favorites</Link>
+          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>
          </li>         
          <li>
-          <Link to = "/profile/"> Profile</Link>
+          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/profile/"> Profile</Link>
          </li>
         <li>
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <button class = 'loginlogout' onClick={logoutUser} style={{ textDecoration: "none" }}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button class = 'loginlogout' onClick={() => navigate("/login")} style={{ textDecoration: "none" }}>Login</button>
           )}
         </li>
 

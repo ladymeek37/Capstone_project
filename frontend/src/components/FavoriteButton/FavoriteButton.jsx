@@ -52,9 +52,8 @@ const FavoriteButton = (props) => {
 
     return ( 
         <div>
-            {/* <button onClick = {onClick} type = 'submit'>Add To Favorites</button> */}
 
-            <p>Add to favorites</p>
+            {/* <p>Add to favorites</p> */}
             <GrFavorite onClick = {onClick} type = 'submit'/> 
         </div>
      );

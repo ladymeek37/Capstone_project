@@ -10,21 +10,24 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Thonburi", sans-serif;
 }
 
 p {
   font-size: 20px;
+  color: rgb(85, 84, 84);
+  font-size: medium;
 }
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 1.5px solid rgb(132, 132, 132);
+  color: white;
   font-size: 1rem;
   font-family: inherit;
-  max-width: 100px;
+  max-width: 300px;
   padding: 0.5rem 0.5rem;
+  color: rgb(132, 132, 132);
 }
 
 button:hover {
@@ -34,7 +37,7 @@ button:hover {
 }
 
 .container {
-  margin: 0 auto;
+  margin: auto;
   max-width: 600px;
   overflow: auto;
   text-align: center;
@@ -45,7 +48,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 0rem;
 }
 
 .form input {
@@ -60,4 +63,27 @@ button:hover {
 img {
   width: 300px;
 
+}
+
+h1{
+  color: rgb(85, 84, 84);
+  letter-spacing: 3px;
+  font-size: x-large;
+}
+
+h3{
+  font-size: x-large;
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: rgb(85, 84, 84);
+  color: transparent;
+  letter-spacing: 2px;
+}
+
+h2{
+  color: rgb(85, 84, 84);
+  font-size:large;
+}
+h4{
+  color: rgb(118, 116, 116);
+  font-size:small;  
 }

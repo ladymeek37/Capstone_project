@@ -9,27 +9,42 @@ li {
 }
 
 .navBar {
-  background: steelblue;
-  box-shadow: 4px 2px 5px gray;
-  color: white;
+  background:white;
+  box-shadow: 5px 2px 5px gray;
+  color: rgb(132, 132, 132);
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
 }
 
 .navBar button {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid rgb(132, 132, 132);
+  color: rgb(132, 132, 132);
   padding: 0.4rem 0.5rem;
 }
 
 .navBar button:hover {
   background: white;
-  color: steelblue;
+  color: rgb(132, 132, 132);
   cursor: pointer;
 }
 
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.navtext{
+  color:rgb(132, 132, 132)
+}
+
+.navtextgnarhealth{
+  color:rgb(132, 132, 132);
+  letter-spacing: 5px;
+
+}
+
+.loginlogout{
+  color:rgb(132, 132, 132);
+  border: 2px solid rgb(132, 132, 132);
 }

@@ -73,25 +73,7 @@ const HomePage = () => {
 
 
   return (
-    <div className="container">
-      {/* <div>
-        <p>Filter By:</p>
-          <Link to = {`/category1/`}> 
-            <button>Yoga/Stretching</button> 
-          </Link>
-        <br/>
-          <Link to = {`/category2/`}> 
-            <button>Diet/Nutrition</button> 
-          </Link>
-        <br/>
-          <Link to = {`/category3/`}> 
-            <button>Lifestyle/Other</button> 
-          </Link>
-        <br/>
-          <Link to = {`/all/`}> 
-            <button>All</button> 
-          </Link>
-      </div> */}
+    <div>
       <div>
           <TipSection />        
       </div>   

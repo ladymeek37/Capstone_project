@@ -18,7 +18,7 @@ const CommentsSection = ({tipId}) => {
 
     return ( 
         <div>
-            <h1>Comments</h1>
+            <h2>Comments</h2>
             <CommentsList getCommentsByTipId ={getCommentsByTipId} tip = {tipId} comments = {comments}/>
             <CommentForm getCommentsByTipId = {getCommentsByTipId} tip = {tipId} />
         </div>
