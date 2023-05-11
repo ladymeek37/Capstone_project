@@ -1,0 +1,8 @@
+.favbutton{
+    color: rgb(132, 132, 132);
+}
+button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: steelblue;
+  }

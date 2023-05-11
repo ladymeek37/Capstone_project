@@ -2,17 +2,22 @@ import React from 'react';
 
 export const CommentsPresenter =({comment}) => {
     return (
-        <li>
-            <p> {comment.user.username} : {comment.text}</p>
-        </li>
+        <ul className='comment'> 
+            <p className='commentitem username'> {comment.user.username}: &nbsp;</p>
+            <p className='commentitem text'> {comment.text}</p>
+        </ul>         
+
     )
 }
 
 const CommentsMapper = ({comments}) => {
     return(
-        <ul>
+        <div>
+        <li>
             {comments.map(comment => <CommentsPresenter key = {comment.id} comment = {comment} />)}
-        </ul>
+        </li>         
+        </div>
+
     )
 }
 

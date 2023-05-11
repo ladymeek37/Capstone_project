@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
+import "./Comments.css"
 
 const CommentsSection = ({tipId}) => {
     const [comments, setComments] = useState([])
@@ -17,10 +18,10 @@ const CommentsSection = ({tipId}) => {
     }
 
     return ( 
-        <div>
-            <h2>Comments</h2>
-            <CommentsList getCommentsByTipId ={getCommentsByTipId} tip = {tipId} comments = {comments}/>
-            <CommentForm getCommentsByTipId = {getCommentsByTipId} tip = {tipId} />
+        <div className='commentscontainer'>
+            <h2 className='item title'>Comments</h2>
+            <CommentsList className='item' getCommentsByTipId ={getCommentsByTipId} tip = {tipId} comments = {comments}/>
+            <CommentForm className='item' getCommentsByTipId = {getCommentsByTipId} tip = {tipId} />
         </div>
      );
 }

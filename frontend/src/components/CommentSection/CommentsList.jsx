@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentsMapper from './CommentMapper';
 import { useEffect } from 'react';
+import "./Comments.css"
 
 
 const CommentsList = ({getCommentsByTipId, comments}) => {
@@ -10,8 +11,8 @@ const CommentsList = ({getCommentsByTipId, comments}) => {
     }, []);
 
     return(
-        <div>
-            <CommentsMapper comments = {comments}/>
+        <div className='commentsdisplay'>
+            <CommentsMapper comments = {comments} className="comment"/>
         </div>
     )
 }

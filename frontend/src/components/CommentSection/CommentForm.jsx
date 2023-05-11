@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useAuth from "../../hooks/useAuth"
 import axios from 'axios';
+import './Comments.css'
 
 const CommentForm = ({tip, getCommentsByTipId}) => {
     const [user, token] = useAuth();
@@ -33,10 +34,10 @@ const CommentForm = ({tip, getCommentsByTipId}) => {
 
     return ( 
         <form onSubmit={onSubmit}>
-            <div>
-                <label>Add comment:</label>
-                <input type = "string" className = "form-control" value = {comment} onChange={(event) => setComment(event.target.value)} />
-                <button type = "submit">Submit</button>
+            <div className='commentform'>
+                <label class='formitem addcomment'>Add comment:</label>
+                <input class='formitem' type = "string" className = "form-control" value = {comment} onChange={(event) => setComment(event.target.value)} />
+                <button class = 'formitem formbutton' type = "submit">Submit</button>
             </div>
         </form>
     );

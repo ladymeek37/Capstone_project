@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from 'axios';
 import { GrFavorite } from 'react-icons/gr';
+import "./FavoriteButton.css"
 
 
 const FavoriteButton = (props) => {
@@ -54,7 +55,7 @@ const FavoriteButton = (props) => {
         <div>
 
             {/* <p>Add to favorites</p> */}
-            <GrFavorite onClick = {onClick} type = 'submit'/> 
+            <GrFavorite onClick = {onClick} type = 'submit' className='favbutton'/> 
         </div>
      );
 }
