@@ -23,7 +23,7 @@ li {
   padding: 0.4rem 0.5rem;
 }
 
-.navBar button:hover {
+.loginlogout:hover {
   background: white;
   color: rgb(132, 132, 132);
   cursor: pointer;
@@ -48,3 +48,4 @@ li {
   color:rgb(132, 132, 132);
   border: 2px solid rgb(132, 132, 132);
 }
+

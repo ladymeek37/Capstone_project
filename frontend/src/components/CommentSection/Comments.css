@@ -26,6 +26,12 @@ input{
     bottom: -18px;
 }
 
+.formbutton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(132, 132, 132);
+  }
+
 
 li{
     list-style-type: none;

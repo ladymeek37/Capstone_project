@@ -29,9 +29,9 @@ const Navbar = () => {
          </li>
         <li>
           {user ? (
-            <button class = 'loginlogout' onClick={logoutUser} style={{ textDecoration: "none" }}>Logout</button>
+            <button className = 'loginlogout' onClick={logoutUser} style={{ textDecoration: "none" }}>Logout</button>
           ) : (
-            <button class = 'loginlogout' onClick={() => navigate("/login")} style={{ textDecoration: "none" }}>Login</button>
+            <button className = 'loginlogout' onClick={() => navigate("/login")} style={{ textDecoration: "none" }}>Login</button>
           )}
         </li>
 

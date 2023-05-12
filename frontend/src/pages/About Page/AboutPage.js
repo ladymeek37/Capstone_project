@@ -1,10 +1,10 @@
 import React from "react";
-
+import "./AboutPage.css"
 
 const AboutPage = () => {
 
     return(
-        <div>
+        <div className="alltext">
             <h1>Welcome!</h1>
             <br/>
                 <p>

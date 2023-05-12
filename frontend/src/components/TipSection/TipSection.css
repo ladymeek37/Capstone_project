@@ -34,6 +34,12 @@
     margin: 10px;
 }
 
+.filterbutton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(132, 132, 132);
+  }
+
 .name-date-favorite{
     display: flex;
     justify-content: space-between;

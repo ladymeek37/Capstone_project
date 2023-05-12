@@ -36,20 +36,20 @@ const TipSection = () => {
                 </div>          
               <div class = "filtercontainer">
                   <p className='filterbutton filtertext'>Filter By:</p>
-                  <Link className='filterbutton' to = {`/category1/`}> 
-                      <button>Yoga/Stretching</button> 
+                  <Link  to = {`/category1/`}> 
+                      <button className='filterbutton'>Yoga/Stretching</button> 
                   </Link>
                   <br/>
-                  <Link className='filterbutton' to = {`/category2/`}> 
-                      <button>Diet/Nutrition</button> 
+                  <Link  to = {`/category2/`}> 
+                      <button className='filterbutton'>Diet/Nutrition</button> 
                   </Link>
                   <br/>
-                  <Link className='filterbutton' to = {`/category3/`}> 
-                      <button>Lifestyle/Other</button> 
+                  <Link  to = {`/category3/`}> 
+                      <button className='filterbutton'>Lifestyle/Other</button> 
                   </Link>
                   <br/>
-                  <Link className='filterbutton' to = {`/all/`}> 
-                      <button>All</button> 
+                  <Link  to = {`/all/`}> 
+                      <button className='filterbutton'>All</button> 
                   </Link>
               </div>
 
