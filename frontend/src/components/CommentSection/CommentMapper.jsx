@@ -3,7 +3,7 @@ import React from 'react';
 export const CommentsPresenter =({comment}) => {
     return (
         <ul className='comment'> 
-            <p className='commentitem username'> {comment.user.username}: &nbsp;</p>
+            <p className='commentitem username'> {comment.user.username}:</p>
             <p className='commentitem text'> {comment.text}</p>
         </ul>         
 

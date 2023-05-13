@@ -9,32 +9,38 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navBar">
-      <ul>
-        <li className="brand">
-          <Link class = "navtext" to="/" style={{ textDecoration: "none" }}>
-            <b class = "navtextgnarhealth">GNAR HEALTH</b> <p>Health tips for skateboarders</p>
-          </Link>
-        </li>
-         <li>
-          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/about"> About </Link>
-         </li>        
-        <li>
-           <Link class = "navtext" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
-         </li>
-         <li>
-          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>
-         </li>         
-         <li>
-          <Link class = "navtext" style={{ textDecoration: "none" }} to = "/profile/"> Profile</Link>
-         </li>
-        <li>
-          {user ? (
-            <button className = 'loginlogout' onClick={logoutUser} style={{ textDecoration: "none" }}>Logout</button>
-          ) : (
-            <button className = 'loginlogout' onClick={() => navigate("/login")} style={{ textDecoration: "none" }}>Login</button>
-          )}
-        </li>
 
+      <ul>
+        <div>
+          <li className="brand">
+            <Link class = "navtext" to="/" style={{ textDecoration: "none" }}>
+              <b class = "navtextgnarhealth">GNAR HEALTH</b> <p>Health tips for skateboarders</p>
+            </Link>
+          </li>          
+        </div>
+        <div className="navchoices">
+          <ul>
+          <li>
+            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/about"> About </Link>
+          </li>        
+          <li>
+            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
+          </li>
+          <li>
+            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>
+          </li>         
+          <li>
+            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/profile/"> Profile</Link>
+          </li>
+          <li>
+            {user ? (
+              <button className = 'loginlogout option' onClick={logoutUser} style={{ textDecoration: "none" }}>Logout</button>
+            ) : (
+              <button className = 'loginlogout option' onClick={() => navigate("/login")} style={{ textDecoration: "none" }}>Login</button>
+            )}
+          </li> 
+          </ul>          
+        </div>
       </ul>
     </div>
   );

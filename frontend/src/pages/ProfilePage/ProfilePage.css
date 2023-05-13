@@ -1,0 +1,14 @@
+.profilebutton:hover{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(132, 132, 132);
+}
+.profilebutton{
+    margin-top: 50px;
+}
+
+.yourpoststext{
+    position: relative;
+    left: 257px;
+    margin-bottom: 40px;
+}

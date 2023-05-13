@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import "./EditPost.css"
 
 const EditPostPage = () => {
     
@@ -91,62 +92,70 @@ const EditPostPage = () => {
 
 
     return ( 
-        <div>
+        <div className="pageparent">
         <form onSubmit = {onSubmit}>
-            <legend>Edit Post for {user.username} : </legend>
-            <br/>
-            <div>
-                <label>*Date:</label>
-                <input type = 'date' value = {date} onChange={(event) => setDate(event.target.value)}></input>               
-            </div>  
-            <br/>          
-            <div>
-                <label>*Title:</label>
-                <input type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
-            </div> 
-            <br/>  
-            <div>
-                <label>*Text:</label>
-                <input type = 'string' value = {text} onChange={(event) => setText(event.target.value)}></input>                
+            <div className="edittitletext">
+                <legend><h1 className="editposttext">Edit Post for {user.username} : </h1></legend>
+                    <br/>
+                <div className= "mandatoryposttext">
+                        * marks mandatory fields to fill out 
+                </div>                
             </div>
-            <br/>         
-            <div>
-                <label>*Category:</label>
-                {/* <input type = 'string' value = {category} onChange={(event) => setCategory(event.target.value)}></input> */}
-                <select 
-                    name = 'category_options_name' 
-                    id = 'category_options_id' 
-                    value = {category} 
-                    onChange={(event) => setCategory(event.target.value)}>
-                        <option value="1">Yoga/Meditation</option>
-                        <option value="2">Diet/Supplements</option>
-                        <option value="3">Lifestyle/Other</option>
-                </select>
+
+            <br/>
+            <div className="editpagechild">
+                <div className="editfield">
+                    <label>*Date:&nbsp;&nbsp;</label>
+                    <input className="formdate" type = 'date' value = {date} onChange={(event) => setDate(event.target.value)}></input>               
+                </div>  
+                <br/>          
+                <div className="editfield">
+                    <label>*Title:&nbsp;&nbsp;</label>
+                    <input className ="formtitle" type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
+                </div> 
+                <br/>  
+                <div className="editfield">
+                    <label>*Text:&nbsp;&nbsp;</label>
+                    <input className= "formtext" type = 'string' value = {text} onChange={(event) => setText(event.target.value)}></input>                
+                </div>
+                <br/>
+                <div className="editfield">
+                    <label>Image:&nbsp;&nbsp;</label>
+                    <input
+                    className="formimage"
+                    type="file"
+                    // value = {image_url}
+                    id="update-pic"
+                    name="image_url"
+                    accept="image/jpeg,image/png,image/gif"
+                    onChange={(e) => imageFile(e)}
+                    />               
+                </div>
+                <br/>
+                <div className="editfield">
+                    <label> Link:&nbsp;&nbsp;&nbsp;</label>
+                    <input className="formlink" type = 'url' id = 'postlink' name = 'postlink' value = {link} onChange={(event) => setLink(event.target.value)}></input>                
+                </div>
+                <br/>
+                <br/>         
+                <div className="editfield">
+                    <label>*Category:&nbsp;&nbsp;</label>
+                    {/* <input type = 'string' value = {category} onChange={(event) => setCategory(event.target.value)}></input> */}
+                    <select 
+                        name = 'category_options_name' 
+                        id = 'category_options_id' 
+                        value = {category} 
+                        onChange={(event) => setCategory(event.target.value)}>
+                            <option value="1">Yoga/Meditation</option>
+                            <option value="2">Diet/Supplements</option>
+                            <option value="3">Lifestyle/Other</option>
+                    </select>
+                </div>
+                <br/>
+                <br/>
+                <button className = "submitnewpost" type = 'submit'> Update Changes </button>                
             </div>
-            <br/>
-            <div>
-                <label>Image:</label>
-                <input
-                type="file"
-                // value = {image_url}
-                id="update-pic"
-                name="image_url"
-                accept="image/jpeg,image/png,image/gif"
-                onChange={(e) => imageFile(e)}
-                />               
-            </div>
-            <br/>
-            <div>
-                <label> Resource Link:</label>
-                <input type = 'url' id = 'postlink' name = 'postlink' value = {link} onChange={(event) => setLink(event.target.value)}></input>                
-            </div>
-            <br/>
-            <br/>
-            <div>
-                * marks mandatory fields to fill out 
-            </div>
-            <br/>
-            <button type = 'submit'> Update Changes </button>
+
 
 
         </form>

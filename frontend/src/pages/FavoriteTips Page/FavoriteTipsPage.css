@@ -1,0 +1,12 @@
+.yourfavtips{
+    position: relative;
+    left: 234px;
+    margin-bottom: 40px;
+}
+.child{
+    margin: 20px;
+}
+
+.favitem{
+    margin:25px
+}

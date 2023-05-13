@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import "./FavoriteTipsPage.css"
 
 const FavoriteTipsPage = () => {
 
@@ -28,22 +29,25 @@ const FavoriteTipsPage = () => {
         }
 
     return ( 
+        <div className="container parent">
         <div>
-        <div>
-            <h1>Your Favorite Tips</h1>
+            <h1 className="yourfavtips">Your Favorites!</h1>
         </div>
             {favoriteTips &&
                 favoriteTips.map((tip) => {
                   return(
-                    <body>
+                    <body className="child">
                       <div key={tip.id}>
-                        <p>{tip.tip.user.username}</p>
-                        <p>{tip.tip.date} </p>
-                        <p>{tip.tip.title}</p> 
+                        <div className="name-date-favorite">
+                            <h3 className='username'>@{tip.tip.user.username}</h3>
+                            <p>{tip.tip.date} </p>                            
+                        </div>
+
+                        <h1>{tip.tip.title}</h1> 
                         <p>{tip.tip.category} </p>
                         <img src = {`http://127.0.0.1:8000${tip.tip.image_url}`} alt={`${tip.tip.title}  tip image`}/> 
-                        <p>{tip.tip.text} </p>
-                        <a href={tip.tip.link} target="_blank">{tip.link}</a>
+                        <p className="favitem">{tip.tip.text} </p>
+                        <a className="favitem" href={tip.tip.link} target="_blank">{tip.tip.link}</a>
                       </div>
                     </body> 
                 )

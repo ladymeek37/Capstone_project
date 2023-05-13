@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import "./ProfilePage.css"
 
 import axios from "axios";
 
@@ -62,26 +63,29 @@ const ProfilePage = () => {
     //   };
       
       return(
+        <div className="container parent">
         <div>
-        <div>
-            <h1>Your Profile</h1>
+            <h1 className="yourpoststext">Your Posts:</h1>
         </div>
             {tips &&
                 tips.map((tip) => {
                   return(
-                    <body>
+                    <body className="child">
                       <div key={tip.id}>
-                        <p>{tip.user.username}</p>
-                        <p>{tip.date} </p>
-                        <p>{tip.title}</p> 
+                        <div className="name-date-favorite">
+                          <h3>@{tip.user.username}</h3>
+                          <p>{tip.date} </p>                          
+                        </div>
+
+                        <h1>{tip.title}</h1> 
                         <p>{tip.category} </p>
                         <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
-                        <p>{tip.text} </p>
-                        <a href={tip.link} target="_blank">{tip.link}</a>
+                        <p className="favitem">{tip.text} </p>
+                        <a className="favitem" href={tip.link} target="_blank">{tip.link}</a>
                       </div>
-                    <button type = "submit" onClick = {() => deleteTip(tip)}>DELETE</button>
+                    <button type = "submit" className="profilebutton" onClick = {() => deleteTip(tip)}>DELETE</button>
                     <Link to = {`/editpost/${tip.id}`}> 
-                        <button>EDIT</button> 
+                        <button className="favitem profilebutton" >EDIT</button> 
                     </Link>
                     </body> 
                 )

@@ -73,7 +73,7 @@ const CreatePostPage = (props) => {
                 <br/>          
                 <div className="field">
                     <label>*Title:&nbsp;&nbsp;</label>
-                    <input className ="formtitle"type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
+                    <input className ="formtitle" type = 'string' value = {title} onChange={(event) => setTitle(event.target.value)}></input>                
                 </div> 
                 <br/>  
                 <div className="field">
