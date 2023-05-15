@@ -78,7 +78,7 @@ const ProfilePage = () => {
                         </div>
 
                         <h1>{tip.title}</h1> 
-                        <p>{tip.category} </p>
+                        <h4 className="profilecategory">{tip.category_display} </h4>
                         <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
                         <p className="favitem">{tip.text} </p>
                         <a className="favitem" href={tip.link} target="_blank">{tip.link}</a>

@@ -14,7 +14,7 @@ const Navbar = () => {
         <div>
           <li className="brand">
             <Link class = "navtext" to="/" style={{ textDecoration: "none" }}>
-              <b class = "navtextgnarhealth">GNAR HEALTH</b> <p>Health tips for skateboarders</p>
+              <b class = "navtextgnarhealth">GNAR HEALTH</b> <p className="description">Health tips for skateboarders</p>
             </Link>
           </li>          
         </div>
