@@ -7,6 +7,11 @@ class FavoriteTip(models.Model):
     tip = models.ForeignKey(Tip, null=True, on_delete=models.CASCADE)
     def get_category_display(self):
         for choice in Tip.category_choices:
-            if choice[0] == Tip.category:
+            if choice[0] == self.tip.category:  # access category from the tip instance
                 return choice[1]
+
+    # def get_category_display(self):
+    #     for choice in Tip.category_choices:
+    #         if choice[0] == Tip.category:
+    #             return choice[1]
 

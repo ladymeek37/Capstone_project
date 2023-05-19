@@ -32,15 +32,13 @@ const FavoriteButton = (props) => {
                 }
             })
             console.log("This is the response",response)
+       
 
         } catch (error) {
             console.log("The api isn't working...", error.message)
         }
-
         await axios.patch(`http://127.0.0.1:8000/api/tips/favorite/${props.tipId}/`,
-        {
-
-        },
+        { },
         {
             headers: {
                 Authorization: "Bearer " + token,
@@ -48,14 +46,16 @@ const FavoriteButton = (props) => {
         }
         )
         props.fetchTips()
-    }
+        } 
 
 
     return ( 
         <div>
+            <button className='addtofavbutton'>
+            <GrFavorite onClick = {onClick} type = 'submit' className='favbutton'/>                 
+            </button>
 
-            {/* <p>Add to favorites</p> */}
-            <GrFavorite onClick = {onClick} type = 'submit' className='favbutton'/> 
+
         </div>
      );
 }

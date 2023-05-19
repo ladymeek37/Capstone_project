@@ -9,20 +9,25 @@ import { Link } from 'react-router-dom';
 import "./TipSection.css"
 
 
-const TipSection = () => {
+const TipSection = (props) => {
     const [tips, setTips] = useState([]);
     const [user, token] = useAuth();
     const {state} = useLocation()
 
+    // useEffect(() => {
+    //     fetchTips();
+    //   }, [token, state]);
+
     useEffect(() => {
         fetchTips();
-      }, [token, state]);
+      }, [props.tipId]);
 
     const fetchTips = async () => {
         try {
           let response = await axios.get("http://127.0.0.1:8000/api/tips/all/"
           );
           setTips(response.data);
+          console.log(response.data)
         } catch (error) {
           console.log(error.response.data);
         }
@@ -62,7 +67,8 @@ const TipSection = () => {
                           <div className='name-date-favorite'>
                             <h3 className='username'>@{tip.user.username}</h3>
                             <div className='fav'>
-                              <FavoriteButton tipId={tip.id}/>
+                              {tip.id}
+                              <FavoriteButton tipId={tip.id} fetchTips={fetchTips} />
                               <p>{tip.favorite_count}</p>                              
                             </div>
 
