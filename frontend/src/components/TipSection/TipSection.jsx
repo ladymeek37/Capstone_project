@@ -62,7 +62,7 @@ const TipSection = (props) => {
                 {tips &&
                   tips.map((tip) => {
                     return(
-                      <body className='child'>
+                      <div className='child'>
                         <div key={tip.id}>
                           <div className='name-date-favorite'>
                             <h3 className='username'>@{tip.user.username}</h3>
@@ -88,7 +88,7 @@ const TipSection = (props) => {
                             <CommentsSection tipId = {tip.id}/>                  
                         </div>
         
-                      </body>                  
+                      </div>                  
                   )
                 }
                 ).reverse()}  

@@ -13,24 +13,24 @@ const Navbar = () => {
       <ul>
         <div>
           <li className="brand">
-            <Link class = "navtext" to="/" style={{ textDecoration: "none" }}>
-              <b class = "navtextgnarhealth">GNAR HEALTH</b> <p className="description">Health tips for skateboarders</p>
+            <Link className = "navtext" to="/" style={{ textDecoration: "none" }}>
+              <b className = "navtextgnarhealth">GNAR HEALTH</b> <p className="description">Health tips for skateboarders</p>
             </Link>
           </li>          
         </div>
         <div className="navchoices">
           <ul>
           <li>
-            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/about"> About </Link>
+            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/about"> About </Link>
           </li>        
           <li>
-            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
+            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
           </li>
           <li>
-            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>
+            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>
           </li>         
           <li>
-            <Link class = "navtext option" style={{ textDecoration: "none" }} to = "/profile/"> Profile</Link>
+            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/profile/"> Profile</Link>
           </li>
           <li>
             {user ? (

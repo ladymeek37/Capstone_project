@@ -78,10 +78,10 @@ def get_tip_by_id(request, tip_id):
 @permission_classes([IsAuthenticated])
 def add_to_fav_count(request, pk):
     tip = get_object_or_404(Tip, pk = pk)
-    tip.favorite_count = tip.favorite_count + 1
     check_tip = FavoriteTip.objects.filter(user=request.user,tip_id = pk).exists()
     if check_tip == True:
         return Response("Already favorited!")
+    tip.favorite_count = tip.favorite_count + 1
     serializer = TipSerializer(tip, data = request.data, partial = True)
     serializer.is_valid(raise_exception=True)
     serializer.save()
