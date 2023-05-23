@@ -45,7 +45,7 @@ const FavoriteTipsPage = () => {
 
                         <h1>{tip.tip.title}</h1> 
                         <p>{tip.category_display} </p>
-                        <img src = {`http://127.0.0.1:8000${tip.tip.image_url}`} alt={`${tip.tip.title}  tip image`}/> 
+                        <img src = {`http://127.0.0.1:8000${tip.tip.image_url}`} /> 
                         <p className="favitem">{tip.tip.text} </p>
                         <a className="favitem" href={tip.tip.link} target="_blank">{tip.tip.link}</a>
                       </div>

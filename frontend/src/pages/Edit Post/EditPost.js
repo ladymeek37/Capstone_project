@@ -124,7 +124,7 @@ const EditPostPage = () => {
                     <input
                     className="formimage"
                     type="file"
-                    // value = {image_url}
+                    value = {image_url}
                     id="update-pic"
                     name="image_url"
                     accept="image/jpeg,image/png,image/gif"

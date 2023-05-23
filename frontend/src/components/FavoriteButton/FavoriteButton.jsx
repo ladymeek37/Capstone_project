@@ -19,12 +19,29 @@ const FavoriteButton = (props) => {
 
     }
 
-    async function addToFavorites() {
+    async function updateFavoriteCount(tipId) {
+        try{
+            console.log("Updating favorite count...")
+            let response = await axios.patch(`http://127.0.0.1:8000/api/tips/favorite/${tipId}/`,
+            {},
+            {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            }
+            );
+            console.log(response);
+        }catch(error) {
+            console.log(error);
+        }
+    }
 
+    async function addToFavorites() {
+        await updateFavoriteCount(props.tipId);
         try{
             let response = await axios.post('http://127.0.0.1:8000/api/favorites/addfavorite/', 
             {
-                "tip_id":props.tipId
+                tip_id: props.tipId
             },
             {
                 headers: {
@@ -37,16 +54,8 @@ const FavoriteButton = (props) => {
         } catch (error) {
             console.log("The api isn't working...", error.message)
         }
-        await axios.patch(`http://127.0.0.1:8000/api/tips/favorite/${props.tipId}/`,
-        { },
-        {
-            headers: {
-                Authorization: "Bearer " + token,
-            }
-        }
-        )
-        props.fetchTips()
-        } 
+        await props.fetchTips();
+    } 
 
 
     return ( 
