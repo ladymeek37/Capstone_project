@@ -18,7 +18,7 @@ const EditPostPage = () => {
 
     const {tipId} = useParams();
 
-    const [tip, setTip] = useState('');
+    const [tip, setTip] = useState();
 
 
     useEffect(() => {
@@ -36,13 +36,13 @@ const EditPostPage = () => {
             },
         });
         console.log("This is the tip", response)
-        setTip(response.data)
         await setCategory(response.data[0].category)
         await setDate(response.data[0].date)
         await setTitle(response.data[0].title)
         await setText(response.data[0].text)
         await setLink(response.data[0].link)        
         // await setImage(response.data[0].image_url)
+        setTip(response.data)
 
         return response
         } catch (error) {
@@ -62,7 +62,9 @@ const EditPostPage = () => {
         formData.append("date", date)
         formData.append("title", title)
         formData.append("text", text)
-        formData.append("image_url", image_url)
+        if (image_url){
+            formData.append("image_url", image_url) // Adding the if conditional to see if the image exists. If not, we would append nothing.
+        }
         formData.append("link", link)
     
         console.log(formData);
@@ -77,6 +79,7 @@ const EditPostPage = () => {
             let response = await axios.put(`http://127.0.0.1:8000/api/tips/${tipId}/`, tip, {
                 headers: {
                     Authorization: "Bearer " + token,
+                    "Content-Type": "multipart/form-data", // Add this in to indicate that we are sending in data with files.
                 },
             })
             console.log("This is the response", response)
@@ -124,7 +127,7 @@ const EditPostPage = () => {
                     <input
                     className="formimage"
                     type="file"
-                    value = {image_url}
+                    // value = {image_url} don't need to add this because the onchange event will take care of it
                     id="update-pic"
                     name="image_url"
                     accept="image/jpeg,image/png,image/gif"

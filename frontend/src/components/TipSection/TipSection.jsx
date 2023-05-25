@@ -67,7 +67,6 @@ const TipSection = (props) => {
                           <div className='name-date-favorite'>
                             <h3 className='username'>@{tip.user.username}</h3>
                             <div className='fav'>
-                              {tip.id}
                               <FavoriteButton tipId={tip.id} fetchTips={fetchTips} />
                               <p>{tip.favorite_count}</p>                              
                             </div>
@@ -77,7 +76,7 @@ const TipSection = (props) => {
                           <div className='tipbody'>
                             <h1 className='item'>{tip.title}</h1> 
                             <h4 className='item'>{tip.category_display} </h4>
-                            <img className='item'src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
+                            {tip.image_url ? <img className='item'src = {`http://127.0.0.1:8000${tip.image_url}`} alt={``}/> : null}
                             <p className='item'>{tip.text} </p>
                             <a className='item' href={tip.link} target="_blank">{tip.link}</a>                            
                           </div>

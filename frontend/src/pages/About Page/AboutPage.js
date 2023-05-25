@@ -12,7 +12,7 @@ const AboutPage = () => {
                 </p>
                 <br/>
                 <p>
-                    -Lady Meek ( Founder and Creator of Gnarly Health)
+                    -Lady Meek ( Founder and Creator of Gnar Health)
                 </p> 
                 <br/>
                 <p>

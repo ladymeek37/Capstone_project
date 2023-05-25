@@ -65,7 +65,7 @@ const ProfilePage = () => {
       return(
         <div className="container parent">
         <div>
-            <h1 className="yourpoststext">Your Posts:</h1>
+            <h1 className="yourpoststext"> @{user.username}'s Posts:</h1>
         </div>
             {tips &&
                 tips.map((tip) => {
