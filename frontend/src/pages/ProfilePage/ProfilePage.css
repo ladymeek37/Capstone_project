@@ -9,10 +9,16 @@
 
 .yourpoststext{
     position: relative;
-    left: 70%;
+    left: 234px;
     margin-bottom: 40px;
 }
 
 .profilecategory{
     margin: 15px;
+}
+
+.notiptext{
+    text-align: center;
+    color:rgb(132, 132, 132);
+    margin-top: 70px;
 }

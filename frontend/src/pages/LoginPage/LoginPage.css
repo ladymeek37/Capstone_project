@@ -7,3 +7,8 @@
 .logintext{
   color:rgb(132, 132, 132);
 }
+
+.logintitle{
+  position: relative;
+  left: 38%;
+}

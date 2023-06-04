@@ -33,6 +33,7 @@ const FavoriteTipsPage = () => {
         <div>
             <h1 className="yourfavtips">Your Favorites!</h1>
         </div>
+        {favoriteTips.length > 0 ? ( <div>
             {favoriteTips &&
                 favoriteTips.map((tip) => {
                   return(
@@ -45,7 +46,7 @@ const FavoriteTipsPage = () => {
 
                         <h1>{tip.tip.title}</h1> 
                         <p>{tip.category_display} </p>
-                        <img src = {`http://127.0.0.1:8000${tip.tip.image_url}`} /> 
+                        {tip.tip.image_url ? <img src = {`http://127.0.0.1:8000${tip.tip.image_url}`} />: null}
                         <p className="favitem">{tip.tip.text} </p>
                         <a className="favitem" href={tip.tip.link} target="_blank">{tip.tip.link}</a>
                       </div>
@@ -53,6 +54,7 @@ const FavoriteTipsPage = () => {
                 )
               }
           ).reverse()}
+          </div> ) : (<div> <p className="notiptext">You haven't favorited any tips yet!</p></div>) }
           </div>
       )
 };

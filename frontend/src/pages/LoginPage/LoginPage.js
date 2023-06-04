@@ -20,6 +20,7 @@ const LoginPage = () => {
 
   return (
     <div className="container logintext">
+      <h2 className="logintitle"> Login user:</h2>
       <form className="form" onSubmit={handleSubmit}>
         <label className="logininput">
           Username:{" "}

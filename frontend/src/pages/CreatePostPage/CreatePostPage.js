@@ -110,7 +110,7 @@ const CreatePostPage = (props) => {
                         value = {category} 
                         onChange={(event) => setCategory(event.target.value)}>
                             <option value="1">Yoga/Meditation</option>
-                            <option value="2">Diet/Supplements</option>
+                            <option value="2">Diet/Nutrition</option>
                             <option value="3">Lifestyle/Other</option>
                     </select>
                 </div>

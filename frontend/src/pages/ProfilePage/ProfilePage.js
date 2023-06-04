@@ -67,6 +67,7 @@ const ProfilePage = () => {
         <div>
             <h1 className="yourpoststext"> @{user.username}'s Posts:</h1>
         </div>
+        {tips.length > 0 ? ( <div>
             {tips &&
                 tips.map((tip) => {
                   return(
@@ -79,7 +80,7 @@ const ProfilePage = () => {
 
                         <h1>{tip.title}</h1> 
                         <h4 className="profilecategory">{tip.category_display} </h4>
-                        <img src = {`http://127.0.0.1:8000${tip.image_url}`} alt={`${tip.title}  tip image`}/> 
+                        {tip.image_url ? <img className='item'src = {`http://127.0.0.1:8000${tip.image_url}`} alt={``}/> : null} 
                         <p className="favitem">{tip.text} </p>
                         <a className="favitem" href={tip.link} target="_blank">{tip.link}</a>
                       </div>
@@ -91,6 +92,7 @@ const ProfilePage = () => {
                 )
               }
           ).reverse()}
+        </div> ) : (<div> <p className="notiptext">You haven't posted any tips yet!</p></div>) }
           </div>
       )
 };
