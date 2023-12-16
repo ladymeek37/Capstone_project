@@ -1,15 +1,24 @@
-.pageparent{
+@media only screen
+  and (max-device-width: 768px)
+  and (orientation: portrait) {
+    .pagechild{
+        margin: 10% !important
+    }
+}
+
+/* .pageparent{
     padding:70px;
     text-align: left;
     color: rgb(85, 84, 84);
     letter-spacing: 1px;
     padding-right: 313px;
     padding-left: 313px;
-}
+} */
 
 .newposttext{
     text-align: center;
     margin-bottom: 15px;
+    padding-top: 43px;
 }
 
 input{
@@ -57,7 +66,8 @@ input{
 }
 
 .pagechild{
-    margin: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
     border: 1.5px solid rgb(132, 132, 132);
     padding: 70px;
     padding-left: 30px;

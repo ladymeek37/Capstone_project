@@ -24,7 +24,7 @@ const Navbar = () => {
             <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/about"> About </Link>
           </li>        
           <li>
-            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/createpost/"> Create Post </Link>
+            <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/createpost/"> Post </Link>
           </li>
           <li>
             <Link className = "navtext option" style={{ textDecoration: "none" }} to = "/favorites/">Favorites</Link>

@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
+@media only screen
+  and (max-device-width: 768px)
+  and (orientation: portrait) {
+    body{
+      zoom: 35%;
+    }
+    .container{
+      margin: 0;
+      max-width: 100%;
+    }
+}
+
+
 *,
 *::before,
 *::after {
@@ -39,7 +52,7 @@ button:hover {
 .container {
   margin: auto;
   max-width: 600px;
-  overflow: auto;
+  /* overflow: auto; */
   text-align: center;
 }
 

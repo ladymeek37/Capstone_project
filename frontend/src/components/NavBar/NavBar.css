@@ -1,3 +1,17 @@
+@media only screen
+  and (max-device-width: 768px)
+  and (orientation: portrait) {
+    body{
+      zoom: 35%;
+    }
+    .container{
+      margin: 0;
+      max-width: 100%;
+      padding-left: 22%;
+      padding-right: 22%;
+    }
+}
+
 ul {
   display: flex;
   justify-content: space-between;
@@ -67,4 +81,8 @@ li {
 .description{
   margin-top:10px;
   color:rgb(132, 132, 132);
+}
+
+body{
+  margin-bottom: 0%;
 }

@@ -1,3 +1,12 @@
+@media only screen
+  and (max-device-width: 768px)
+  and (orientation: portrait) {
+    .yourpoststext{
+        position: relative !important;
+        left: 0px !important;
+    }
+}
+
 .profilebutton:hover{
     cursor: pointer;
     color: white;

@@ -1,3 +1,12 @@
+@media only screen
+  and (max-device-width: 768px)
+  and (orientation: portrait) {
+    .yourfavtips {
+        position: relative !important;
+        left: 0px !important; }
+}
+
+
 .yourfavtips{
     position: relative;
     left: 234px;

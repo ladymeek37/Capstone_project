@@ -35,7 +35,7 @@ def user_tip(request):
         serializer = TipSerializer(tips, many=True)
         return Response(serializer.data)
 
-#api request to update tip
+#api request to update and delete tip
 @api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def tip_detail(request, pk):

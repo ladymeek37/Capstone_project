@@ -29,6 +29,7 @@ const TipSectionOne = () => {
 
 
     return ( 
+      <div className='tipsectiongroup'>
             <div className="container parent">
               <div className='titlecontainer'>
                 <h1 >Yoga and Stretching:</h1>                  
@@ -51,6 +52,7 @@ const TipSectionOne = () => {
                     <button>All</button> 
                 </Link>
             </div>
+            <h4 className='titlecontainer'>Click the heart to add something to your favorites!</h4>
 
                 {tips &&
                   tips.map((tip) => {
@@ -84,7 +86,9 @@ const TipSectionOne = () => {
                   )
                 }
                 ).reverse()}
-            </div>
+            </div>        
+      </div>
+
           );
   
 }

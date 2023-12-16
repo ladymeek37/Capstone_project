@@ -35,6 +35,7 @@ const TipSection = (props) => {
 
 
     return ( 
+      <div className='tipsectiongroup'>
                 <div className="container parent">
                 <div className='titlecontainer'>
                   <h1 >All Tips:</h1>                  
@@ -57,7 +58,7 @@ const TipSection = (props) => {
                       <button className='filterbutton'>All</button> 
                   </Link>
               </div>
-
+              <h4 className='titlecontainer'>Click the heart to add something to your favorites!</h4>
                 <div>
                 {tips &&
                   tips.map((tip) => {
@@ -93,7 +94,9 @@ const TipSection = (props) => {
                 ).reverse()}  
                 </div>
 
-            </div>
+            </div>        
+      </div>
+
           );
   
 }
